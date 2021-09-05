@@ -159,7 +159,7 @@ defmodule(Jaeger.Thrift.Collector) do
               {:reply, Elixir.Jaeger.Thrift.Collector.SubmitBatchesResponse.BinaryProtocol.serialize(response)}
             )
           rescue
-            []
+            _ -> []
           catch
             kind, reason ->
               formatted_exception = Exception.format(kind, reason, System.stacktrace())
